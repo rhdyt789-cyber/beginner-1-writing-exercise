@@ -1,353 +1,128 @@
-```html
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Listening Exercise - Finding the Library</title>
+<title>About My Family - Writing Exercise</title>
 
 <style>
-
 body{
     font-family: Arial, sans-serif;
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-    background:#f5f7fb;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background:#f4f6f9;
 }
 
-h1{
-    text-align:center;
+.container{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+h1,h2{
     color:#2c3e50;
 }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    margin-top:20px;
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
+textarea{
+    width:100%;
+    min-height:120px;
+    padding:10px;
+    margin-top:10px;
 }
 
-.word-bank{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:25px;
-}
-
-.word{
-    background:#4361ee;
-    color:white;
-    padding:10px 15px;
-    border-radius:8px;
-    cursor:grab;
-    font-weight:bold;
-}
-
-.question{
-    margin:20px 0;
-    font-size:18px;
-    line-height:1.8;
-}
-
-.dropzone{
-    display:inline-block;
-    min-width:120px;
-    min-height:35px;
-    border:2px dashed #4361ee;
-    border-radius:8px;
-    text-align:center;
-    background:white;
-    vertical-align:middle;
-}
-
-.correct{
-    background:#06d6a0 !important;
-    color:white;
-    border-color:#06d6a0 !important;
-}
-
-.wrong{
-    background:#ef233c !important;
-    color:white;
-    border-color:#ef233c !important;
-}
-
-.feedback{
-    color:#ef233c;
-    font-size:14px;
-    margin-top:5px;
+input{
+    padding:8px;
+    margin:5px;
 }
 
 button{
-    background:#4361ee;
+    background:#3498db;
     color:white;
     border:none;
-    padding:12px 25px;
-    border-radius:8px;
-    font-size:18px;
+    padding:12px 20px;
+    border-radius:5px;
     cursor:pointer;
 }
 
 button:hover{
-    opacity:.9;
+    background:#2980b9;
 }
 
-#result{
-    margin-top:25px;
-    font-size:24px;
-    font-weight:bold;
-    text-align:center;
-}
-
-.tf-feedback{
-    margin-left:10px;
+.correct{
+    color:green;
     font-weight:bold;
 }
 
+.wrong{
+    color:red;
+    font-weight:bold;
+}
 </style>
 </head>
 <body>
 
-<h1>🎧 Finding the Library</h1>
+<div class="container">
 
-<audio controls style="width:100%;">
-<source src="0L4-finding-the-library.mp3" type="audio/mpeg">
-</audio>
+<hr>
 
-<div class="card">
+<h2>Part A: Fill in the blanks</h2>
 
-<h2>Part 1: Drag the Words</h2>
+<p>1. Kelly lives in
+<input id="q1"></p>
 
-<div class="word-bank">
+<p>2. Kelly's mother's name is
+<input id="q2"></p>
 
-<div class="word" draggable="true" id="library">library</div>
-<div class="word" draggable="true" id="bridge">bridge</div>
-<div class="word" draggable="true" id="supermarket">supermarket</div>
-<div class="word" draggable="true" id="right">right</div>
-<div class="word" draggable="true" id="park">park</div>
-<div class="word" draggable="true" id="red">red</div>
+<p>3. Kelly's father works in a
+<input id="q3"></p>
 
-</div>
+<p>4. Kelly's sister loves listening to
+<input id="q4"></p>
 
-<div class="question">
-1. John is looking for the
-<span class="dropzone" data-answer="library"></span>
-</div>
+<p>5. Brandy is a pet
+<input id="q5"></p>
 
-<div class="question">
-2. John needs to cross the river on a
-<span class="dropzone" data-answer="bridge"></span>
-</div>
-
-<div class="question">
-3. John will see a big
-<span class="dropzone" data-answer="supermarket"></span>
-on his left.
-</div>
-
-<div class="question">
-4. He should turn
-<span class="dropzone" data-answer="right"></span>
-after the supermarket.
-</div>
-
-<div class="question">
-5. The library is across from the
-<span class="dropzone" data-answer="park"></span>
-</div>
-
-<div class="question">
-6. The library is a big building with a
-<span class="dropzone" data-answer="red"></span>
-roof.
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>Part 2: True or False</h2>
-
-<div class="question">
-1. John knows the town very well.
-<label><input type="radio" name="tf1" value="True"> True</label>
-<label><input type="radio" name="tf1" value="False"> False</label>
-<span id="fb1" class="tf-feedback"></span>
-</div>
-
-<div class="question">
-2. John is visiting the town for only one day.
-<label><input type="radio" name="tf2" value="True"> True</label>
-<label><input type="radio" name="tf2" value="False"> False</label>
-<span id="fb2" class="tf-feedback"></span>
-</div>
-
-<div class="question">
-3. The library is very far away.
-<label><input type="radio" name="tf3" value="True"> True</label>
-<label><input type="radio" name="tf3" value="False"> False</label>
-<span id="fb3" class="tf-feedback"></span>
-</div>
-
-<div class="question">
-4. John must cross a river to get to the library.
-<label><input type="radio" name="tf4" value="True"> True</label>
-<label><input type="radio" name="tf4" value="False"> False</label>
-<span id="fb4" class="tf-feedback"></span>
-</div>
-
-<div class="question">
-5. John should turn left after the supermarket.
-<label><input type="radio" name="tf5" value="True"> True</label>
-<label><input type="radio" name="tf5" value="False"> False</label>
-<span id="fb5" class="tf-feedback"></span>
-</div>
-
-<div class="question">
-6. The library is next to the park.
-<label><input type="radio" name="tf6" value="True"> True</label>
-<label><input type="radio" name="tf6" value="False"> False</label>
-<span id="fb6" class="tf-feedback"></span>
-</div>
-
-<div class="question">
-7. The library has a red roof.
-<label><input type="radio" name="tf7" value="True"> True</label>
-<label><input type="radio" name="tf7" value="False"> False</label>
-<span id="fb7" class="tf-feedback"></span>
-</div>
-
-</div>
-
-<div style="text-align:center;margin-top:20px;">
 <button onclick="checkAnswers()">Check Answers</button>
-<button onclick="location.reload()">Try Again</button>
-</div>
 
-<div id="result"></div>
+<p id="result"></p>
+
+<hr>
+
+<h2>Part B: Write About Your Family</h2>
+
+<p>Write 5–8 sentences about your family.</p>
+
+<textarea placeholder="My name is..."></textarea>
+
+</div>
 
 <script>
-
-const draggables=document.querySelectorAll('.word');
-const dropzones=document.querySelectorAll('.dropzone');
-
-draggables.forEach(item=>{
-
-item.addEventListener('dragstart',e=>{
-e.dataTransfer.setData('text',item.id);
-});
-
-});
-
-dropzones.forEach(zone=>{
-
-zone.addEventListener('dragover',e=>{
-e.preventDefault();
-});
-
-zone.addEventListener('drop',e=>{
-
-e.preventDefault();
-
-const id=e.dataTransfer.getData('text');
-
-zone.innerHTML=id;
-zone.dataset.user=id;
-
-});
-
-});
-
 function checkAnswers(){
 
-let score=0;
+let score = 0;
 
-// Fill blanks
-
-dropzones.forEach(zone=>{
-
-if(zone.dataset.user===zone.dataset.answer){
-
-zone.classList.add("correct");
-score++;
-
-}else{
-
-zone.classList.add("wrong");
-
-zone.innerHTML=
-(zone.dataset.user || "blank")
-+"<br><small>✓ "
-+zone.dataset.answer+
-"</small>";
-
-}
-
-});
-
-// True False
-
-const answers={
-tf1:"False",
-tf2:"True",
-tf3:"False",
-tf4:"True",
-tf5:"False",
-tf6:"False",
-tf7:"True"
+const answers = {
+q1:"california",
+q2:"carmen",
+q3:"bank",
+q4:"music",
+q5:"dog"
 };
 
-for(let key in answers){
+for(let id in answers){
+let user = document.getElementById(id).value.trim().toLowerCase();
 
-const selected=document.querySelector(
-`input[name="${key}"]:checked`
-);
-
-const feedback=document.getElementById(
-"fb"+key.replace("tf","")
-);
-
-if(selected){
-
-if(selected.value===answers[key]){
-
-feedback.innerHTML="✓";
-feedback.style.color="green";
+if(user === answers[id]){
 score++;
-
-}else{
-
-feedback.innerHTML=
-"Correct: "+answers[key];
-feedback.style.color="red";
-
+}
 }
 
-}else{
-
-feedback.innerHTML=
-"Correct: "+answers[key];
-feedback.style.color="red";
-
+document.getElementById("result").innerHTML =
+"You got " + score + " out of 5 correct!";
 }
-
-}
-
-let percent=Math.round((score/13)*100);
-
-document.getElementById("result").innerHTML=
-`
-Score: ${score}/13
-<br>
-Percentage: ${percent}%
-`;
-
-}
-
 </script>
 
 </body>
 </html>
-```
